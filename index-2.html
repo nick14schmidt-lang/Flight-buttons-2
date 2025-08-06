@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dispatch Flight Tools</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    section {
+      margin-bottom: 50px;
+    }
+    iframe {
+      width: 90%;
+      height: 500px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    input, button {
+      padding: 8px;
+      font-size: 14px;
+    }
+    .link-button {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #0078d7;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dispatch Flight Tools</h1>
+
+  <!-- Tail Tracker -->
+  <section>
+    <h2>Track Flight by Tail Number (FlightAware)</h2>
+    <p>Enter a tail number (e.g., N12345):</p>
+    <input id="tailInput" type="text" placeholder="Enter Tail Number">
+    <button onclick="openFlight()">Track Flight</button>
+  </section>
+
+  <!-- FlightRadar24 Map -->
+  <section>
+    <h2>Live Flight Map (FlightRadar24)</h2>
+    <iframe src="https://www.flightradar24.com/simple_index.php?lat=27.94&lon=-82.24&z=6"></iframe>
+  </section>
+
+  <!-- External Tools -->
+  <section>
+    <h2>Additional Tools</h2>
+    <a class="link-button" href="https://airplanemanager.com/flight-calculator" target="_blank">
+      Flight Time Calculator (AirplaneManager)
+    </a>
+    <a class="link-button" href="https://www.flightstats.com/v2/flight-tracker/arrivals/TPA/" target="_blank">
+      Commercial Arrivals (FlightStats)
+    </a>
+  </section>
+
+  <script>
+    function openFlight() {
+      var tail = document.getElementById("tailInput").value.trim();
+      if (tail) {
+        window.open("https://flightaware.com/live/flight/" + tail, "_blank");
+      } else {
+        alert("Please enter a valid tail number.");
+      }
+    }
+  </script>
+</body>
+</html>
